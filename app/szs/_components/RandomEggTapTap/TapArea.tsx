@@ -3,7 +3,13 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
-import { LazyLottie, LottieRef } from "@/components/LazyLottie";
+import dynamic from "next/dynamic";
+import type { LottieRef } from "@/components/LazyLottie";
+
+const LazyLottie = dynamic(
+  () => import("@/components/LazyLottie").then((mod) => mod.LazyLottie),
+  { ssr: false }
+);
 
 import { Position, Size } from "./RandomEggTapTap";
 
