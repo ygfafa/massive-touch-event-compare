@@ -1,6 +1,7 @@
 "use client";
+import { LazyLottie, LottieRef } from "@/components/LazyLottie";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const Page = () => {
   const [count, setCount] = useState(0);
@@ -20,13 +21,39 @@ type TouchableBoxProps = {
   onPointerDown: () => void;
 };
 const TouchableBox = ({ onPointerDown }: TouchableBoxProps) => {
+  const [isPressed, setIsPressed] = useState(false);
+  const lottieRef = useRef<LottieRef>(null);
+
+  const handlePointerDown = () => {
+    if (isPressed) return;
+
+    setIsPressed(true);
+    onPointerDown();
+  };
+
+  const handlePointerUp = () => {
+    setIsPressed(false);
+  };
   return (
     <motion.div
-      whileTap={{ scale: 0.9 }}
-      transition={{ duration: 0.3 }}
+      animate={{ scale: isPressed ? 1.1 : 1 }}
+      transition={{ duration: 0.1 }}
       className="w-40 h-40 bg-blue-500 rounded-lg"
-      onPointerDown={onPointerDown}
-    />
+      onPointerDown={handlePointerDown}
+      onPointerUp={handlePointerUp}
+    >
+      <LazyLottie
+        ref={lottieRef}
+        autoplay={false}
+        loop={false}
+        name="ani_object_egg_crack(success)_3d_250224"
+        getAnimationData={() =>
+          import("./ani_object_egg_crack(success)_3d_250224.json")
+        }
+        width="100%"
+        height="100%"
+      />
+    </motion.div>
   );
 };
 
