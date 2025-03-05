@@ -1,3 +1,6 @@
+"use client";
+
+import { QueryProvider } from "@/components/QueryProvider";
 import "./globals.css";
 
 export default function RootLayout({
@@ -14,7 +17,7 @@ export default function RootLayout({
         />
       </head>
       <body className="w-screen h-screen flex justify-center items-center overflow-hidden">
-        {children}
+        <QueryProvider>{children}</QueryProvider>
       </body>
     </html>
   );
