@@ -1,7 +1,5 @@
-/** @jsxImportSource @emotion/react */
 "use client";
 
-import { css } from "@emotion/react";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import { TapArea } from "./TapArea";
@@ -75,13 +73,11 @@ export const RandomEggTapTap = ({
   return (
     <div
       ref={boardRef}
-      css={[
-        css`
-          position: relative;
-          width: 100%;
-          height: 100%;
-        `,
-      ]}
+      style={{
+        position: "relative",
+        width: "100%",
+        height: "100%",
+      }}
     >
       {position && (
         <TapArea

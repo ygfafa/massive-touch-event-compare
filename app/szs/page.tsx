@@ -1,7 +1,5 @@
-/** @jsxImportSource @emotion/react */
 "use client";
 
-import { css } from "@emotion/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { useCountdown, useCounter } from "usehooks-ts";
@@ -63,12 +61,12 @@ const Page = () => {
       <CountDisplay count={tapCounter.count} />
 
       <div
-        css={css`
-          flex: 1;
-          display: flex;
-          align-items: center;
-          position: relative;
-        `}
+        style={{
+          flex: 1,
+          display: "flex",
+          alignItems: "center",
+          position: "relative",
+        }}
       >
         <RandomEggTapTap
           disabled={!isGamePlaying}

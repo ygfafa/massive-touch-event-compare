@@ -1,7 +1,5 @@
-/** @jsxImportSource @emotion/react */
 "use client";
 
-import { css } from "@emotion/react";
 import { motion, useAnimation } from "framer-motion";
 import { forwardRef, useImperativeHandle, useState } from "react";
 
@@ -49,26 +47,26 @@ export const GameProgressBar = forwardRef<
 
   return (
     <div
-      css={css`
-        position: relative;
-        width: 100%;
-        height: 14px;
-        background-color: #ffffff;
-        border-radius: 8px;
-        overflow: hidden;
-      `}
+      style={{
+        position: "relative",
+        width: "100%",
+        height: "14px",
+        backgroundColor: "#ffffff",
+        borderRadius: "8px",
+        overflow: "hidden",
+      }}
     >
       <motion.div
         initial={{ width: "100%" }}
         animate={controls}
-        css={css`
-          position: absolute;
-          left: 0;
-          top: 0;
-          height: 100%;
-          background-color: ${timeLeft <= 3 ? "#FF0000" : "#0000FF"};
-          border-radius: 8px;
-        `}
+        style={{
+          position: "absolute",
+          left: 0,
+          top: 0,
+          height: "100%",
+          backgroundColor: timeLeft <= 3 ? "#FF0000" : "#0000FF",
+          borderRadius: "8px",
+        }}
       />
     </div>
   );
