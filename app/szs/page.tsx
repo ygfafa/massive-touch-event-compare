@@ -78,7 +78,7 @@ const Page = () => {
             }
           }}
           tabAreaSize={gameConfigStore.touchWidth!}
-          tapsToMove={Math.floor(gameConfigStore.successCount! * 0.2)}
+          tapsToMove={20}
           broken={tapCounter.count >= gameConfigStore.successCount! * 0.5}
         />
         {isOverlayShow && (
@@ -94,7 +94,7 @@ const Page = () => {
         )}
       </div>
 
-      <div>
+      <div className="fixed bottom-0 left-0 right-0">
         <GameProgressBar duration={GAME_TIME} ref={gameProgressBarRef} />
       </div>
     </div>

@@ -51,7 +51,7 @@ export const GameProgressBar = forwardRef<
         position: "relative",
         width: "100%",
         height: "14px",
-        backgroundColor: "#ffffff",
+        backgroundColor: "#9b8383ff",
         borderRadius: "8px",
         overflow: "hidden",
       }}
