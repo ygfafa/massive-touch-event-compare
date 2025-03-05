@@ -1,5 +1,3 @@
-"use client";
-
 import { QueryProvider } from "@/components/QueryProvider";
 import "./globals.css";
 
